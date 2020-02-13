@@ -1,0 +1,93 @@
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+public class Frame1 {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Frame1 window = new Frame1();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Frame1() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 791, 553);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnImport = new JButton("Import");
+		btnImport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+															// This button is for the importation of the button that will
+			}												// Give the user the functionality for the cluster input
+		});
+		btnImport.setBounds(10, 11, 101, 34);
+		frame.getContentPane().add(btnImport);
+		
+		JButton btnExport = new JButton("Export"); // This button gives the functionality for the user to send the GUI out as a .JPG or .GIF
+		btnExport.setBounds(121, 11, 101, 34);
+		frame.getContentPane().add(btnExport);
+		
+		
+		JButton btnOptions = new JButton("Options"); // Drop-down for Scale,
+		btnOptions.setBounds(230, 14, 95, 29);
+		frame.getContentPane().add(btnOptions);
+		
+		JLabel lblNewLabel = new JLabel("Test Logo:"); // Fancy logo
+		Image img = new ImageIcon(this.getClass().getResource("/lightningbolt.png")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(131, 56, 671, 429);
+		frame.getContentPane().add(lblNewLabel);
+		
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(664, 18, 101, 20);
+		frame.getContentPane().add(comboBox);
+		
+		JButton button = new JButton("+"); // Zoom out the GUI
+		button.setBounds(10, 462, 41, 41);
+		frame.getContentPane().add(button);
+		
+		JButton button_1 = new JButton("-"); // Zoom in the GUI 
+		button_1.setBounds(61, 462, 41, 41);
+		frame.getContentPane().add(button_1);
+		
+		JLabel lblZeusClusteringGui = DefaultComponentFactory.getInstance().createTitle("Zeus Clustering GUI (Alpha 1)");
+		lblZeusClusteringGui.setBounds(382, 21, 88, 14);
+		frame.getContentPane().add(lblZeusClusteringGui);
+		
+		
+		
+	}
+}
